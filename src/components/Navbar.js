@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useLocation} from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge';
 import Cart from "../screens/Cart";
 import Modal from "../Modal";
 import { useCart } from "./ContextReducer";
+
 
 export default function Navbar() {
   const [cartView, setcartView] = useState(false)
@@ -14,6 +15,8 @@ export default function Navbar() {
     localStorage.removeItem("authtoken");
     navigate("/");
   };
+
+  const location = useLocation();
 
   return (
     <div>

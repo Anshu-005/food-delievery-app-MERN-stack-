@@ -33,8 +33,8 @@ export default function MyOrder() {
               .slice(0)
               .reverse()
               .map((order, index) => {
-                const items = order; // array of products
-                const date = order[1]; // order date
+                const items = order.slice(1); // array of products
+                const date = order[0].Order_date; // order date
                 return (
                   <div key={index} className="w-100">
                     <h5 className="mt-4">Order Date: {new Date(date).toLocaleString()}</h5>
@@ -46,12 +46,6 @@ export default function MyOrder() {
                             className="card mt-3"
                             style={{ width: "16rem", maxHeight: "360px" }}
                           >
-                            <img
-                              src={product.img}
-                              className="card-img-top"
-                              alt={product.name}
-                              style={{ height: "120px", objectFit: "fill" }}
-                            />
                             <div className="card-body">
                               <h5 className="card-title">{product.name}</h5>
                               <div
